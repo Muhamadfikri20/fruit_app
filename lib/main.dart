@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      home: Scaffold(body: GradientConatiner()),
+    const MaterialApp(
+      home: Scaffold(body: GradientContainer()),
     ),
   );
 }
 
-class GradientConatiner extends StatelessWidget {
+class GradientContainer extends StatelessWidget {
+  const GradientContainer({super.key});
   @override
   Widget build(context) {
     return Container(
