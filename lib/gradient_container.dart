@@ -4,13 +4,19 @@ const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer(this.color1, this.color2, {super.key});
-  const GradientContainer.purple({super.key})
+  GradientContainer(this.color1, this.color2, {super.key});
+  GradientContainer.purple({super.key})
       : color1 = Colors.deepPurple,
         color2 = Colors.indigo;
   final Color color1;
   final Color color2;
-  void rollDice() {}
+  var activeFruitImage = 'assets/images/fruit-1.png';
+
+  void rollDice() {
+    activeFruitImage = 'assets/images/fruit-1.png';
+    print('Changing image');
+  }
+
   @override
   Widget build(context) {
     return Container(
@@ -22,7 +28,7 @@ class GradientContainer extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              'assets/images/fruit-1.png',
+              activeFruitImage,
               width: 200,
             ),
             const SizedBox(
@@ -30,7 +36,7 @@ class GradientContainer extends StatelessWidget {
             ),
             TextButton(
               onPressed: rollDice,
-              child: const Text('Roll Dice'),
+              child: const Text('Change Fruit'),
               style: TextButton.styleFrom(
                   // padding: const EdgeInsets.only(top: 20),
                   foregroundColor: Colors.white,
