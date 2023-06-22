@@ -10,6 +10,7 @@ class GradientContainer extends StatelessWidget {
         color2 = Colors.indigo;
   final Color color1;
   final Color color2;
+  void rollDice() {}
   @override
   Widget build(context) {
     return Container(
@@ -17,9 +18,14 @@ class GradientContainer extends StatelessWidget {
         gradient: LinearGradient(colors: [color1, color2], begin: startAlignment, end: endAlignment),
       ),
       child: Center(
-        child: Image.asset(
-          'assets/images/fruit-1.png',
-          width: 200,
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/fruit-1.png',
+              width: 200,
+            ),
+            TextButton(onPressed: rollDice, child: const Text('Roll Dice'))
+          ],
         ),
       ),
     );
