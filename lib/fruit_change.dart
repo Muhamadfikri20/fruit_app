@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+
+final randomizer = Random();
 
 class FruitChange extends StatefulWidget {
   const FruitChange({super.key});
@@ -8,11 +11,11 @@ class FruitChange extends StatefulWidget {
 }
 
 class _FruitChangeState extends State<FruitChange> {
-  var activeFruitImage = 'assets/images/fruit-1.png';
+  var currentFruitChange = 2;
 
   void rollDice() {
     setState(() {
-      activeFruitImage = 'assets/images/fruit-4.png';
+      currentFruitChange = randomizer.nextInt(4) + 1;
       print('Changing image');
     });
   }
@@ -23,7 +26,7 @@ class _FruitChangeState extends State<FruitChange> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          activeFruitImage,
+          'assets/images/fruit-$currentFruitChange.png',
           width: 200,
         ),
         const SizedBox(
